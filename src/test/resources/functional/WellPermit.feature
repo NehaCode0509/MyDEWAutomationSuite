@@ -15,4 +15,4 @@ Feature: New Application for Well Permit
     Then User add attachment and reviews to record type
     And User pays the fees and click on next
     And User has successfully submit the application
-    ##  | surendra.singh@sa./gov.au | sambroo |
+    ##  | surendra.singh@sa.gov.au | sambroo |
