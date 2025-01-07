@@ -64,7 +64,6 @@
 </dependencies>
 <build>
 <plugins>
-
 <plugin>
 <groupId>org.apache.maven.plugins</groupId>
 <artifactId>maven-compiler-plugin</artifactId>
@@ -83,6 +82,27 @@
 <argLine>--add-opens java.base/java.util=ALL-UNNAMED</argLine>
 </configuration>
 </plugin>
+<plugin>
+    <groupId>net.masterthought</groupId>
+    <artifactId>maven-cucumber-reporting</artifactId>
+    <version>3.15.0</version>
+    <executions>
+        <execution>
+            <id>generate-report</id>
+            <phase>verify</phase>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+            <configuration>
+                <jsonFiles>
+                    <param>target/cucumber-reports/cucumber.json</param>
+                </jsonFiles>
+                <reportOutputDirectory>target/cucumber-html-reports</reportOutputDirectory>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+
 </plugins>
 <directory>target</directory>
 </build>
