@@ -24,7 +24,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Run tests (e.g., using Maven)
-                sh 'mvn test'
+                sh 'mvn clean test'
             }
         }
 
