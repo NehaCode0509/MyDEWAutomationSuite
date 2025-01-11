@@ -3,14 +3,14 @@ pipeline {
 
         stages {
         
-        stage('Test') {
+        stage('Run Test') {
             steps {
                 // Run tests (e.g., using Maven)
-                sh 'mvn clean test'
+                bat 'mvn clean test'
             }
         }
 
-                }
+      }
     }
 
   
