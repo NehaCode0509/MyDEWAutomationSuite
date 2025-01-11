@@ -7,6 +7,7 @@
 <name>DEWAutomationSuite</name>
 <url>http://maven.apache.org</url>
 <properties>
+    <generate-report>target/cucumber-reports/</generate-report>
 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 </properties>
 <dependencies>
@@ -95,9 +96,9 @@
             </goals>
             <configuration>
                 <jsonFiles>
-                    <param>target/cucumber-reports/cucumber.json</param>
+                    <param>$(project.build.directorytarget/cucumber-reports/cucumber.json</param>
                 </jsonFiles>
-                <reportOutputDirectory>target/cucumber-html-reports</reportOutputDirectory>
+                <reportOutputDirectory>${generate-report}</reportOutputDirectory>
             </configuration>
         </execution>
     </executions>
