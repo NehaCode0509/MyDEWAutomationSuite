@@ -2,7 +2,7 @@ pipeline {
     agent any  // Run on any available agent (machine)
 
 		tools {
-				maven 'Maven 3.9.9'
+				maven 'Maven 3.x'
 				
 			}
 					
