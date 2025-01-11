@@ -21,11 +21,6 @@ pipeline {
                 // Run tests (e.g., using Maven)
                 bat 'mvn clean test'
             }
-            stage('Archive Results')
-            steps
-            {
-            
-            }
             
         }
 
