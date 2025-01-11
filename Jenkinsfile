@@ -1,26 +1,8 @@
 pipeline {
     agent any  // Run on any available agent (machine)
 
-    environment {
-        // Define environment variables
-        MY_VAR = 'Hello, Jenkins!'
-    }
-
-    stages {
-        stage('Checkout') {
-            steps {
-                // Checkout code from GitHub (replace URL with your repository)
-                git 'https://github.com/your-username/your-repository.git'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                // Run a build (for example, Maven build)
-                sh 'mvn clean install'
-            }
-        }
-
+        stages {
+        
         stage('Test') {
             steps {
                 // Run tests (e.g., using Maven)
@@ -28,22 +10,8 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                // Deploy your application (replace with actual deploy steps)
-                echo 'Deploying application...'
-            }
-        }
+                }
     }
 
-    post {
-        success {
-            // Actions to perform if the build is successful
-            echo 'Build succeeded!'
-        }
-        failure {
-            // Actions to perform if the build fails
-            echo 'Build failed!'
-        }
-    }
-}
+  
+
