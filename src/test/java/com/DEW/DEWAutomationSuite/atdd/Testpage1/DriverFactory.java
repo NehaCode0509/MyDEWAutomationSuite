@@ -9,9 +9,14 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
+import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
+
 public class DriverFactory {
 	
-	  private static WebDriver driver  = DriverFactory.initializeDriver("edge");
+	  public static WebDriver driver ;
 //	  WebDriver driver = DriverFactory.initializeDriver("edge");
 	    /**
 	     * Initializes the WebDriver instance based on the specified browser type.
@@ -19,6 +24,7 @@ public class DriverFactory {
 	     * @param browser The name of the browser to initialize (e.g., "edge").
 	     * @return The initialized WebDriver instance.
 	     */
+
 	    public static WebDriver initializeDriver(String browser) {
 	        if (browser.equalsIgnoreCase("edge")) {
 	            System.setProperty("webdriver.edge.driver", "C:/Users/SSingh2/Documents/eclipse-workspace/DewAutomationSuite/msedgedriver.exe");
@@ -76,6 +82,7 @@ public class DriverFactory {
 	    /**
 	     * Closes and quits the WebDriver instance.
 	     */
+	 
 	    public static void quitDriver() {
 	        if (driver != null) {
 	            driver.quit();

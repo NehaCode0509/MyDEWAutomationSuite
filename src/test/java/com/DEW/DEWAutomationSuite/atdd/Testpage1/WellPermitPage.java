@@ -172,7 +172,7 @@ public class WellPermitPage extends Selenium_Utils {
 	  	 
 	  	
  
-	  	WebDriver driver = DriverFactory.getDriver() ; 
+	  //	WebDriver driver = DriverFactory.getDriver() ; 
 	  
 
 	

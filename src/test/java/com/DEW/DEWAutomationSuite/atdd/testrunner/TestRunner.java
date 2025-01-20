@@ -9,11 +9,11 @@ package com.DEW.DEWAutomationSuite.atdd.testrunner;
 
 	@RunWith(Cucumber.class)
 	@CucumberOptions(features = "src/test/resources/functional", 
-	glue = { "com.DEW.DEWAutomation.atdd.stepdefinitions", },
+	glue = { "com.DEW.DEWAutomation.atdd.stepdefinitions","com.DEW.DEWAutomation.hooks" },
 	dryRun = false,
 	plugin = { "pretty","html:target/cucumber-reports.html", "json:target/cucumber.json" }, 
 	monochrome = true,
-	tags = "@WellPermit")
+	tags = "@Regression")
 	 
 	public class TestRunner {
 		

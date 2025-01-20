@@ -18,7 +18,7 @@ pipeline {
             }
             post {
                 always {
-                    junit '**/target/surefire-reports/*.xml'  // Collect test results
+                    junit '**/target/**/*-reports/*.xml'  // Collect test results
                     cucumber(
                         buildStatus: 'UNCHANGED', 
                         fileIncludePattern: 'target/cucumber.json',

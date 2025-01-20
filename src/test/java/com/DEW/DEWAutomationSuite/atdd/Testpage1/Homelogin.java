@@ -25,6 +25,8 @@ import org.openqa.selenium.support.PageFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
+
+import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Homelogin extends Selenium_Utils {
@@ -41,7 +43,7 @@ public class Homelogin extends Selenium_Utils {
 	 private WebElement MyWaterLogo;
 	 
 
-	WebDriver driver = DriverFactory.getDriver();
+	
 	
 	
 	
@@ -76,6 +78,7 @@ public void LoginApp() throws Exception
 	}
 }
 
+
 public void LaunchAppUrl() throws Exception
 {
 	try {
@@ -102,6 +105,7 @@ public void LoginSuccessful()throws Exception
 	waitForJSandJQueryToLoad(driver);
 	waitForPageLoad(driver);
 	highlightElement(MyWaterLogo);
+	
 	
 }
 }

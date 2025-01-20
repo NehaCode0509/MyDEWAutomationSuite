@@ -11,20 +11,23 @@ import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import junit.framework.Assert;
 //import com.DEW.DEWAutomation.stepDefinitions.Home;
 
-public class PageLayoutStepDefinition extends DriverFactory {
+public class PageLayoutStepDefinition  {
 	
 	
 	
 	Homelogin homelogin;
 	WellPermitPage wellpermitpage ;
 	
+
 	public PageLayoutStepDefinition()
 	{
 		homelogin = new Homelogin();
