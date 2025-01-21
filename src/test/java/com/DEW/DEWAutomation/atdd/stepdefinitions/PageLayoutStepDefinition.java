@@ -106,5 +106,23 @@ public class PageLayoutStepDefinition  {
 		wellpermitpage.SuccessfullySubmitApplication();
 	   
 	}	
+	@Given("User launch the DEW Accela Staff portal my water homepage")
+	public void user_launch_the_dew_accela_staff_portal_my_water_homepage() throws Exception {
+		 homelogin.LaunchAppUrlAccelaStaffPortal();
+		
+	   
+	}
+	@When("User should login portal valid username and password")
+	public void user_should_login_portal_valid_username_and_password() throws Exception {
+		 homelogin.LoginAppAccelaStaff();
+	   
+	}
+	@Then("I can see home page logo successfully")
+	public void i_can_see_home_page_logo_successfully()throws Exception {
+		 homelogin.VerifyLogo();
+
+	}
+
+
 
 }

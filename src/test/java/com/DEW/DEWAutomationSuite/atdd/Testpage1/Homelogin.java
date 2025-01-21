@@ -34,14 +34,23 @@ public class Homelogin extends Selenium_Utils {
 	
 	 @FindBy(how = How.XPATH ,using = "//*[@name='username']")
 	 private WebElement login;
+	 
+	 @FindBy(how = How.XPATH ,using = "//*[@name='agency']")
+	 private WebElement agency;
+	 
 	 @FindBy(how = How.XPATH,using = "//*[@name='password']")
 	 private WebElement password;
 	 @FindBy(how = How.XPATH,using = "//*[contains(text(),'Log in')]")
 	 private WebElement LoginButton;
 	 
+	 @FindBy(how = How.XPATH,using = "//*[@type='submit']")
+	 private WebElement AceelastaffLoginButton;
+	 
 	 @FindBy(how = How.XPATH,using = "//*[@src='/aca/Customization/images/mywater-graphic-teal.png']")
 	 private WebElement MyWaterLogo;
 	 
+	 @FindBy(how = How.XPATH,using = "//*[@src='assets/images/accela-logo-wordmark.svg']")
+	 private WebElement MyAccelaStaffportallogo;
 
 	
 	
@@ -78,6 +87,34 @@ public void LoginApp() throws Exception
 	}
 }
 
+public void LoginAppAccelaStaff() throws Exception
+{
+	try {
+		 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		 DocumentBuilder builder = factory.newDocumentBuilder();
+		 Document doc = builder.parse("src/test/resources/readXMLdata.xml");
+		 doc.getDocumentElement().normalize();
+		 String Agency = doc.getElementsByTagName("agencyid").item(0).getTextContent();
+		 String username1 = doc.getElementsByTagName("usernameaccelastaff").item(0).getTextContent();
+		 String password1 = doc.getElementsByTagName("passwordaccela").item(0).getTextContent();
+		 System.out.println("I am before objects");
+		 Thread.sleep(5000);
+	       // Switch to iframe by index (e.g., first iframe on the page)
+        // driver.switchTo().frame(0);
+         
+         highlightElement(agency);
+		 agency.sendKeys(Agency);
+         highlightElement(login);
+		 login.sendKeys(username1);
+		 highlightElement(password);
+		 password.sendKeys(password1);
+		 highlightElement(AceelastaffLoginButton);
+		 AceelastaffLoginButton.click();
+	}
+	catch (Exception e) {
+		e.printStackTrace();
+	}
+}
 
 public void LaunchAppUrl() throws Exception
 {
@@ -87,6 +124,23 @@ public void LaunchAppUrl() throws Exception
 	Document doc = builder.parse("src/test/resources/readXMLdata.xml");
 	doc.getDocumentElement().normalize();
 	String AppURL = doc.getElementsByTagName("appUrl").item(0).getTextContent();
+	System.out.println(AppURL);
+	driver.get(AppURL);
+	}
+	catch (Exception e) {
+		e.printStackTrace();
+		}
+	 
+}
+
+public void LaunchAppUrlAccelaStaffPortal() throws Exception
+{
+	try {
+	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	DocumentBuilder builder = factory.newDocumentBuilder();
+	Document doc = builder.parse("src/test/resources/readXMLdata.xml");
+	doc.getDocumentElement().normalize();
+	String AppURL = doc.getElementsByTagName("AccelaappUrl").item(0).getTextContent();
 	System.out.println(AppURL);
 	driver.get(AppURL);
 	}
@@ -105,6 +159,15 @@ public void LoginSuccessful()throws Exception
 	waitForJSandJQueryToLoad(driver);
 	waitForPageLoad(driver);
 	highlightElement(MyWaterLogo);
+	
+	
+}
+
+public void VerifyLogo() throws Exception {
+	Thread.sleep(8000);
+	waitForJSandJQueryToLoad(driver);
+	waitForPageLoad(driver);
+	highlightElement(MyAccelaStaffportallogo);
 	
 	
 }

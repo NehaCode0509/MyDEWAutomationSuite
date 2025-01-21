@@ -65,6 +65,10 @@ public class WellPermitPage extends Selenium_Utils {
 	 @FindBy(how = How.XPATH,using = "//*[@id='ACADialogFrame']")
 	 private WebElement  ACAFrame ;
 	 
+	 @FindBy(how = How.XPATH,using = "//*[@class='mask_iframe']")
+	 private WebElement  Frame1 ;
+	 
+	
  	 @FindBy(how = How.XPATH,using = "//*[@title='Individual']")
  private WebElement  Type ;
  
@@ -103,6 +107,9 @@ public class WellPermitPage extends Selenium_Utils {
   	 @FindBy(how = How.XPATH,using = "//*[@id='ctl00_phPopup_ucContactAddressEdit_txtState_State1']")
  private WebElement  State ;
   	 
+	 @FindBy(how = How.XPATH,using = "(//*[@title='This is a masked layout for Silverlight control.'])[2]")
+ private WebElement  framenewone ;
+  	 
   	 
   	 @FindBy(how = How.XPATH,using = "//*[@id='ctl00_phPopup_ucContactAddressEdit_txtZip']")
  private WebElement  PostCode ;
@@ -117,7 +124,7 @@ public class WellPermitPage extends Selenium_Utils {
   	@FindBy(how = How.XPATH,using = "//*[@title='Skip Challenge']")
 	 private WebElement  Skipchallenge ;
 	 
-	 	 @FindBy(how = How.XPATH,using = "//*[@id='btnProcessPayment']")
+	 	 @FindBy(how = How.XPATH,using = "//*[@value='Pay']")
 	 private WebElement  Pay ;
 	 
 	 	 @FindBy(how = How.XPATH,using = "//*[@id='checkbox']")
@@ -133,6 +140,9 @@ public class WellPermitPage extends Selenium_Utils {
 	 	 @FindBy(how = How.XPATH,using = "//*[@id='ExpiryMonth']")
 	 private WebElement  ExpiryMonth ;
 	 
+	 	 @FindBy(how = How.XPATH,using = "//*[@id='card_type_001']")
+		 private WebElement  CardType ;
+		 
 	 
 	 	 @FindBy(how = How.XPATH,using = "//*[@id='CardNumber']")
 	 private WebElement  VisaCardNumber ;
@@ -149,7 +159,7 @@ public class WellPermitPage extends Selenium_Utils {
 	  	 @FindBy(how = How.XPATH,using = "//*[@id='ctl00_PlaceHolderMain_AppSpec79B4EEBDEdit_DEW_txt_0_8']")
 	 private WebElement  ProposedDepth ;
 	 
-	  	 @FindBy(how = How.XPATH,using = "//*[@id='btnReviewPayment']")
+	  	 @FindBy(how = How.XPATH,using = "//*[@='type='submit']")
 	 private WebElement NextButton   ;
 	 
 	  	 @FindBy(how = How.XPATH,using = "//*[@id='ctl00_PlaceHolderMain_AppSpec2515C39BEdit_DEW_chk_0_0']")
@@ -284,12 +294,13 @@ public void FillTheContactInformationPage()  throws Exception {
     selectByVisibleText(Addresstype, "Postal");
     highlightElement(Addresstypesecond);
     selectByVisibleText(Addresstypesecond, "Street address");
-    highlightElement(Country);
-   // selectByVisibleText(Country, "Australia");
+ //   highlightElement(Country);
+  //  selectByVisibleText(Country, "Australia");
  	highlightElement(Suburb);
  	Suburb.click();
- 	  safeJavaScriptSendKeys(Suburb,"Payneham");
- //	 Suburb.sendKeys("Payneham");
+ 	Thread.sleep(3000);
+ 	safeJavaScriptSendKeys(Suburb,"Payneham");
+ 	 Suburb.sendKeys("Payneham");
     highlightElement(PostCode);
     PostCode.click();
     safeJavaScriptSendKeys(PostCode, "5070");
@@ -304,27 +315,23 @@ public void FillTheContactInformationPage()  throws Exception {
     //StreetName.sendKeys("John Street");
     highlightElement(State);
     selectByVisibleText(State, "SA");
+    Thread.sleep(8000);
+    	
     highlightElement(SaveCloseBtton);
     safeJavaScriptClick(SaveCloseBtton);
     
-    Thread.sleep(8000);
- //   highlightElement(ContinueNew);
-   // ContinueNew.click();
-//   driver.switchTo().frame(ACAFrame);
-    Thread.sleep(9000);
-   /* SafeJavasafeScrollToElement(Continue);
-    highlightElement(Continue);
-    Continue.click();*/
+    Thread.sleep(10000);
+    driver.switchTo().parentFrame();
+    //driver.switchTo().frame("framnewone");
+    System.out.println(driver.getCurrentUrl());
+    System.out.println("I am above continue button");
+   highlightElement(ContinueNew);
+   ContinueNew.click();
+   driver.switchTo().parentFrame();
 }
 
-
-
-
-
-
-
 public void SelectTheProsedWork() throws Exception {
-	Thread.sleep(8000);
+	Thread.sleep(10000);
 	waitForJSandJQueryToLoad(driver);
 	waitForPageLoad(driver);
 	highlightElement(ContinueApplication);
@@ -379,6 +386,9 @@ public void PayFees() throws Exception {
 	Thread.sleep(8000);
 	waitForJSandJQueryToLoad(driver);
 	waitForPageLoad(driver);
+
+	highlightElement(CardType);
+	CardType.click();
 	highlightElement(VisaCardNumber);
 	VisaCardNumber.sendKeys("4012888888881881");
 	highlightElement(ExpiryMonth);
@@ -391,8 +401,8 @@ public void PayFees() throws Exception {
 	highlightElement(NextButton);
 	safeJavaScriptClick(NextButton);
 	Thread.sleep(5000);
-	highlightElement(Captcha);
-	safeJavaScriptClick(Captcha);
+	//highlightElement(Captcha);
+	//safeJavaScriptClick(Captcha);
 	highlightElement(Pay);
 	safeJavaScriptClick(Pay);
 	Thread.sleep(7000);

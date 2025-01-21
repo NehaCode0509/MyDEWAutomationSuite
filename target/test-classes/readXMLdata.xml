@@ -1,7 +1,13 @@
 <readXMLdata>
-<login>
+<login>passwordaccela
 <username>surendra.singh@sa.gov.au</username>
 <password>SamsungDelhi01##</password>
 <appUrl>https://access-qa.mywater.sa.gov.au/aca/Welcome.aspx</appUrl>
+</login>
+<login>
+<usernameaccelastaff>SSINGH</usernameaccelastaff>
+<agencyid>DEW</agencyid>
+<passwordaccela>SamsungDelhi01%%</passwordaccela>
+<AccelaappUrl>https://mywater.qa.env.sa.gov.au/portlets/web/en-us/#/auth/login</AccelaappUrl>
 </login>
 </readXMLdata>
