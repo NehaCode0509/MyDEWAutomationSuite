@@ -5,7 +5,7 @@ import java.util.List;
 import com.DEW.DEWAutomationSuite.atdd.Testpage1.DriverFactory;
 import com.DEW.DEWAutomationSuite.atdd.Testpage1.Homelogin;
 import com.DEW.DEWAutomationSuite.atdd.Testpage1.WellPermitPage;
-
+import com.DEW.DEWAutomationSuite.atdd.Testpage1.MyWaterAccelaSignUp;
 import io.cucumber.java.PendingException;
 //import cucumber.api.PendingException;
 import io.cucumber.java.en.Given;
@@ -18,7 +18,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import junit.framework.Assert;
-//import com.DEW.DEWAutomation.stepDefinitions.Home;
+import com.DEW.DEWAutomationSuite.atdd.Testpage1.*;
 
 public class PageLayoutStepDefinition  {
 	
@@ -26,13 +26,13 @@ public class PageLayoutStepDefinition  {
 	
 	Homelogin homelogin;
 	WellPermitPage wellpermitpage ;
-	
+	MyWaterAccelaSignUp mywateraccelasignup;
 
 	public PageLayoutStepDefinition()
 	{
 		homelogin = new Homelogin();
 		wellpermitpage  = new WellPermitPage ();
-;
+		mywateraccelasignup = new MyWaterAccelaSignUp();
 	}
 	
 	@Given("User launch the Access my water homepage")
@@ -123,6 +123,34 @@ public class PageLayoutStepDefinition  {
 
 	}
 
+	@When("User click on Sign up")
+	public void user_click_on_sign_up() throws Exception{
+
+		mywateraccelasignup.user_click_on_sign_up();
+	 
+	}
+	@When("I can see signup page successfully")
+	public void i_can_see_signup_page_successfully() throws Exception {
+	    // Write code here that turns the phrase above into concrete actions
+		mywateraccelasignup.user_can_see_signup_page_successfully();
+	}
+	@When("User fill all the mandatory fields on the page")
+	public void user_fill_all_the_mandatory_fields_on_the_page() throws Exception{
+
+		mywateraccelasignup.user_fill_all_the_mandatory_fields_on_the_page();
+	    
+	}
+	@When("User clicks on Create an account button")
+	public void user_clicks_on_create_an_account_button() throws Exception {
+		mywateraccelasignup.user_clicks_on_create_an_account_button();
+
+	    throw new io.cucumber.java.PendingException();
+	}
+	@Then("User is able to create the account successfully")
+	public void user_is_able_to_create_the_account_successfully() throws Exception{
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
 
 
 }

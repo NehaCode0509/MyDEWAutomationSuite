@@ -159,7 +159,7 @@ public class WellPermitPage extends Selenium_Utils {
 	  	 @FindBy(how = How.XPATH,using = "//*[@id='ctl00_PlaceHolderMain_AppSpec79B4EEBDEdit_DEW_txt_0_8']")
 	 private WebElement  ProposedDepth ;
 	 
-	  	 @FindBy(how = How.XPATH,using = "//*[@='type='submit']")
+	  	 @FindBy(how = How.XPATH,using = "//*[@type='submit']")
 	 private WebElement NextButton   ;
 	 
 	  	 @FindBy(how = How.XPATH,using = "//*[@id='ctl00_PlaceHolderMain_AppSpec2515C39BEdit_DEW_chk_0_0']")
