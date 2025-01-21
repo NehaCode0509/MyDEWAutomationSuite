@@ -130,21 +130,21 @@ public class WellPermitPage extends Selenium_Utils {
 	 	 @FindBy(how = How.XPATH,using = "//*[@id='checkbox']")
 	 private WebElement  Captcha ;
 	 
-	 	 @FindBy(how = How.XPATH,using = "//*[@id='CVN']")
+	 	 @FindBy(how = How.XPATH,using = "//*[@id='card_cvn']")
 	 private WebElement  CVN ;
 	 
-	 	 @FindBy(how = How.XPATH,using = "//*[@id='ExpiryYear']")
+	 	 @FindBy(how = How.XPATH,using = "//*[@id='card_expiry_year']")
 	 private WebElement  ExpiryYear ;
 	 
 	 
-	 	 @FindBy(how = How.XPATH,using = "//*[@id='ExpiryMonth']")
+	 	 @FindBy(how = How.XPATH,using = "//*[@id='card_expiry_month']")
 	 private WebElement  ExpiryMonth ;
 	 
 	 	 @FindBy(how = How.XPATH,using = "//*[@id='card_type_001']")
 		 private WebElement  CardType ;
 		 
 	 
-	 	 @FindBy(how = How.XPATH,using = "//*[@id='CardNumber']")
+	 	 @FindBy(how = How.XPATH,using = "//*[@id='card_number']")
 	 private WebElement  VisaCardNumber ;
 	 
 	 	 @FindBy(how = How.XPATH,using = "//*[@id='ctl00_PlaceHolderMain_capReviewCertification1_termReviewAccept']")
@@ -370,6 +370,7 @@ public void add_attachment_and_reviews_to_record_type() throws Exception {
 	Thread.sleep(8000);
 	waitForJSandJQueryToLoad(driver);
 	waitForPageLoad(driver);
+	highlightElement(ContinueApplication);
 	ContinueApplication.click();
 	highlightElement(TermReviewAccept);
 	safeJavaScriptClick(TermReviewAccept);
@@ -383,10 +384,10 @@ public void add_attachment_and_reviews_to_record_type() throws Exception {
 }
 
 public void PayFees() throws Exception {
-	Thread.sleep(8000);
+	Thread.sleep(15000);
 	waitForJSandJQueryToLoad(driver);
 	waitForPageLoad(driver);
-
+    driver.switchTo().parentFrame();
 	highlightElement(CardType);
 	CardType.click();
 	highlightElement(VisaCardNumber);
@@ -394,7 +395,7 @@ public void PayFees() throws Exception {
 	highlightElement(ExpiryMonth);
 	ExpiryMonth.sendKeys("11");
 	highlightElement(ExpiryYear);
-	ExpiryYear.sendKeys("34");
+	ExpiryYear.sendKeys("2034");
 	highlightElement(CVN);
 	CVN.sendKeys("999");
 	Thread.sleep(3000);
